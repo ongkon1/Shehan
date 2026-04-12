@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of a Software & Web Developer — building clean, efficient, and user-focused digital experiences.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="John Doe — Software & Web Developer">
+  <meta property="og:description" content="Building clean, efficient, and user-focused digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourusername.github.io/portfolio/">
+
+  <title>John Doe — Software & Web Developer</title>
+
+  <!-- Google Fonts — Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header id="header">
+    <nav class="navbar">
+      <a href="#hero" class="nav-logo">John Doe</a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i data-lucide="sun" class="icon-sun"></i>
+          <i data-lucide="moon" class="icon-moon"></i>
+        </button>
+
+        <!-- Hamburger Menu -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1 class="hero-title">Hi, I'm <span class="accent">John Doe</span></h1>
+      <p class="hero-subtitle">Software & Web Developer</p>
+      <p class="hero-tagline">I build clean, efficient, and user-focused digital experiences.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        I'm a passionate software and web developer with experience building modern, responsive web applications.
+        I enjoy turning complex problems into simple, elegant solutions. My focus is on writing clean, maintainable
+        code and creating seamless user experiences. When I'm not coding, I'm exploring new technologies and
+        contributing to open-source projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+
+      <!-- Frontend -->
+      <div class="skills-category">
+        <h3 class="skills-category-title">Frontend</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i data-lucide="code-2"></i>
+            <span>HTML</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="palette"></i>
+            <span>CSS</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="braces"></i>
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="file-code-2"></i>
+            <span>TypeScript</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="atom"></i>
+            <span>React</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="skills-category">
+        <h3 class="skills-category-title">Backend</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i data-lucide="server"></i>
+            <span>Node.js</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="terminal"></i>
+            <span>Python</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="plug"></i>
+            <span>REST APIs</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="database"></i>
+            <span>MongoDB</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="hard-drive"></i>
+            <span>PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Others -->
+      <div class="skills-category">
+        <h3 class="skills-category-title">Tools & Others</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i data-lucide="git-branch"></i>
+            <span>Git</span>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="monitor"></i>
+            <span>VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3 class="project-title">TaskFlow</h3>
+          <p class="project-description">A minimalist task management app with drag-and-drop boards, real-time sync, and team collaboration features.</p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="external-link"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h3 class="project-title">WeatherPulse</h3>
+          <p class="project-description">A clean weather dashboard that shows forecasts, air quality, and location-based alerts using open APIs.</p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">REST API</span>
+            <span class="tag">CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="external-link"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <h3 class="project-title">DevBlog</h3>
+          <p class="project-description">A static blog built with markdown parsing, syntax highlighting, and dark mode support for developer articles.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="external-link"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <h3 class="project-title">SpendWise</h3>
+          <p class="project-description">A personal finance tracker with visual charts, budget categories, and monthly spending insights.</p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Node.js</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="external-link"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-text">Have a project in mind? Let's talk.</p>
+
+      <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key — replace with your real key -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <!-- Honeypot Spam Protection -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit">
+          <i data-lucide="send"></i> Send Message
+        </button>
+
+        <div class="form-status" id="form-status"></div>
+      </form>
+
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-link">
+          <i data-lucide="mail"></i> your@email.com
+        </a>
+        <a href="https://github.com/yourusername" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 John Doe. All rights reserved.</p>
+      <p class="footer-tagline">Built with HTML, CSS & JS</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide icons — run immediately and also on DOMContentLoaded as fallback
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
