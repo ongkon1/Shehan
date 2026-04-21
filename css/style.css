@@ -13,13 +13,16 @@
 
 /* --- Custom Properties (Light Theme — default) --- */
 :root {
-  --bg: #fafafa;
-  --surface: #ffffff;
+  --bg: #f0f6ff;
+  --bg-base: #f0f6ff;
+  --nav-bg: rgba(240, 246, 255, 0.88);
+  --surface: rgba(255, 255, 255, 0.78);
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
-  --border: #e5e7eb;
+  --border: rgba(37, 99, 235, 0.16);
+  --grid-dot: rgba(37, 99, 235, 0.1);
 
   --font: 'Inter', sans-serif;
   --max-width: 1100px;
@@ -33,29 +36,35 @@
 
 /* --- Dark Theme --- */
 [data-theme="dark"] {
-  --bg: #0f0f0f;
-  --surface: #1a1a1a;
-  --text-primary: #f5f5f5;
-  --text-secondary: #9ca3af;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --border: #2e2e2e;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --bg: #070f1e;
+  --bg-base: #050d1a;
+  --nav-bg: rgba(5, 13, 26, 0.88);
+  --surface: rgba(7, 15, 30, 0.72);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --border: rgba(56, 189, 248, 0.18);
+  --grid-dot: rgba(56, 189, 248, 0.12);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* --- Respect system preference --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f0f0f;
-    --surface: #1a1a1a;
-    --text-primary: #f5f5f5;
-    --text-secondary: #9ca3af;
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --border: #2e2e2e;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --bg: #070f1e;
+    --bg-base: #050d1a;
+    --nav-bg: rgba(5, 13, 26, 0.88);
+    --surface: rgba(7, 15, 30, 0.72);
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --border: rgba(56, 189, 248, 0.18);
+    --grid-dot: rgba(56, 189, 248, 0.12);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -63,6 +72,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  background-color: var(--bg-base);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 30px 30px;
+  transition: background-color var(--transition);
 }
 
 body {
@@ -70,8 +83,19 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--bg);
-  transition: background-color var(--transition), color var(--transition);
+  background-color: transparent;
+  transition: color var(--transition);
+}
+
+/* Tech background canvas */
+#tech-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
 }
 
 a {
@@ -118,7 +142,9 @@ img {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--bg);
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: background-color var(--transition), border-color var(--transition);
 }
@@ -314,6 +340,109 @@ img {
 }
 
 /* ============================
+   TYPEWRITER CURSOR
+   ============================ */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--accent);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: cursorBlink 0.75s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================
+   GLITCH EFFECT
+   ============================ */
+#glitch-name {
+  position: relative;
+  display: inline-block;
+}
+
+#glitch-name.glitch::before,
+#glitch-name.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#glitch-name.glitch::before {
+  color: #ff00cc;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  animation: glitchTop 0.25s steps(2) forwards;
+}
+
+#glitch-name.glitch::after {
+  color: #00eeff;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  animation: glitchBot 0.25s steps(2) forwards;
+}
+
+@keyframes glitchTop {
+  0%   { transform: translate(-3px, -1px); }
+  33%  { transform: translate(3px,  1px); }
+  66%  { transform: translate(-2px, 2px); }
+  100% { transform: translate(0,   0);   }
+}
+
+@keyframes glitchBot {
+  0%   { transform: translate(3px, 1px); }
+  33%  { transform: translate(-3px, -1px); }
+  66%  { transform: translate(2px,  -2px); }
+  100% { transform: translate(0,    0);   }
+}
+
+/* ============================
+   HERO SCAN LINE
+   ============================ */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.35;
+  animation: scanLine 4s linear infinite;
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes scanLine {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* ============================
+   SCROLL REVEAL
+   ============================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================
    BUTTONS
    ============================ */
 .btn {
@@ -344,6 +473,7 @@ img {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
   color: #ffffff;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.45), 0 0 6px rgba(56, 189, 248, 0.3);
 }
 
 .btn-primary:focus-visible {
@@ -360,6 +490,7 @@ img {
 .btn-outline:hover {
   background-color: var(--accent);
   color: #ffffff;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
 }
 
 .btn-outline:focus-visible {
@@ -410,6 +541,8 @@ img {
   gap: 0.5rem;
   padding: 1.25rem 1rem;
   background-color: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -418,7 +551,7 @@ img {
 
 .skill-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25), var(--shadow-md);
   border-color: var(--accent);
 }
 
@@ -449,6 +582,8 @@ img {
   flex-direction: column;
   padding: 1.5rem;
   background-color: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -457,7 +592,7 @@ img {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.2), var(--shadow-md);
   border-color: var(--accent);
 }
 
@@ -552,6 +687,8 @@ img {
   font-size: 0.95rem;
   color: var(--text-primary);
   background-color: var(--surface);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   outline: none;
@@ -696,7 +833,9 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 0;
-    background-color: var(--bg);
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
     transform: translateY(-120%);

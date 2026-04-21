@@ -25,11 +25,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <canvas id="tech-bg" aria-hidden="true"></canvas>
 
   <!-- ===== NAVIGATION ===== -->
   <header id="header">
     <nav class="navbar">
-      <a href="#hero" class="nav-logo">John Doe</a>
+      <a href="#hero" class="nav-logo">Shehanul Chowdhury</a>
 
       <ul class="nav-links" id="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
@@ -60,11 +61,11 @@
   <!-- ===== HERO SECTION ===== -->
   <section id="hero" class="hero">
     <div class="container">
-      <h1 class="hero-title">Hi, I'm <span class="accent">John Doe</span></h1>
-      <p class="hero-subtitle">Software & Web Developer</p>
+      <h1 class="hero-title">Hi, I'm <span class="accent" id="glitch-name" data-text="Md Shehanul Chowdhury Aongkon">Md Shehanul Chowdhury Aongkon</span></h1>
+      <p class="hero-subtitle" id="typed-subtitle">Software &amp; Web Developer</p>
       <p class="hero-tagline">I build clean, efficient, and user-focused digital experiences.</p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="assets/cv.pdf" class="btn btn-primary" download>Download CV</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
